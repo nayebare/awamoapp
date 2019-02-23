@@ -1,17 +1,22 @@
+var  request =  require('https');
 
-const chai = require('chai').expect;
-var chaiHttp = require('chai-http')
+//Require the dev-dependencies
+let chai = require('chai');
+let chaiHttp = require('chai-http');
+let should = chai.should();
+chai.use(chaiHttp);
 
-const addController = require('../controllers/addController.js');
-var assert = require('assert');
-
-describe('/Addition', () => {
-  it('Should expect number to be above zero', (done) => {
-    addController.getSum(function (err, result) {
-      chaiHttp.end((err, res) => {
-        res.body.error.should.eql('sent empty paramenters');
-        done();
-    });
+  describe('/POST Addition', () => {
+      it('it should post Addition', (done) => {
+        chai.request('http://localhost:8000')
+            .post('/add/')
+            .send({
+              opd1: 4, opd2: 3
+             })
+            .end((err, res) => {
+              res.should.have.status(200);
+              done();
+            });
+      });
   });
-  });
-});
+
