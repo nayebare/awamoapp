@@ -14,7 +14,6 @@ class addController {
         }
         else {
             var sum = (parseInt(req.body.opd1) + parseInt(req.body.opd2));
-             console.log(sum)
             res.status(200).json(sum);
         }
     }

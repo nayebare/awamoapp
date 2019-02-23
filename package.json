@@ -8,7 +8,12 @@
   "description": "dsm2.0 API application",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "mocha --require babel-core/register --watch-extensions js \"{,!(node_modules)/**/}*.test.js\"",
+    "start:dev": "nodemon server/src/index.js --exec babel-node",
+    "build": "babel ./server/src -d ./server/dist",
+    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls && nyc report --reporter=lcov",
+    "heroku-postbuild": "npm run build"
   },
   "directories": {
     "test": "test"
@@ -19,6 +24,8 @@
     "angular": "^1.7.2",
     "auth0-api-jwt-rsa-validation": "0.0.1",
     "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "express-error-handler": "^1.1.0",
@@ -32,5 +39,10 @@
     "nodemailer": "^4.6.8",
     "pg": "^6.1.0",
     "swagger-ui-express": "^4.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "gulp-babel": "^8.0.0"
   }
 }
