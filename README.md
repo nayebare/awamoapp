@@ -1,4 +1,4 @@
-DSM Distributor Service Management API Vr2.0
+AWAMO APPLICATION API Vr.1.0.0
 
 
 
