@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Awamo API Application</title>
+	<style type="text/css">
+		form {
+			margin: 20px 0;
+		}
+
+		form input,
+		button {
+			padding: 5px;
+		}
+
+		table {
+			width: 100%;
+			margin-bottom: 20px;
+			border-collapse: collapse;
+		}
+
+		table,
+		th,
+		td {
+			border: 1px solid #cdcdcd;
+		}
+
+		table th,
+		table td {
+			padding: 10px;
+			text-align: left;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$(".add-row").click(function () {
+				var inputData = {}
+				var number1 = $("#number1").val();
+				action = $("#action").val();
+				number2 = $("#number2").val();
+				expected = 0;
+				//put values in array
+				inputData.opd1 = number1;
+				inputData.opd2 = number2;
+
+
+				//addition option
+				if (action == 'add') {
+					$.post('/add', inputData, function (expected) {
+						var response = (Math.ceil(parseInt(number1)) + Math.ceil(parseInt(number2)));
+						if (response != expected) {
+							passed = 'no'
+							var markupHight = "<tr><td><input type='checkbox' name='record'></td><td>" + number1 + "</td><td>" + number2 + "</td><td>" + expected + "</td><td>" + response + "</td><td>" + passed + "</td></tr>";
+							$("table tbody").append(markup);
+						}
+						else {
+							passed = 'yes'
+							var markup = "<tr backgroud-color='lime-gren'><td><input type='checkbox' name='record'></td><td>" + number1 + "</td><td>" + number2 + "</td><td>" + expected + "</td><td>" + response + "</td><td>" + passed + "</td></tr>";
+							$("table tbody").append(markup);
+						}
+
+					}, 'JSON');
+
+				}
+				//substraction option
+
+				if (action == 'sub') {
+					$.post('/sub/', inputData, function (expected) {
+						var response = (Math.ceil(parseInt(number1)) - Math.ceil(parseInt(number2)));
+						if (response != expected) {
+							passed = 'no'
+							var markupHight = "<tr><td><input type='checkbox' name='record'></td><td>" + number1 + "</td><td>" + number2 + "</td><td>" + expected + "</td><td>" + response + "</td><td>" + passed + "</td></tr>";
+							$("table tbody").append(markupHight);
+						}
+						else {
+							passed = 'yes'
+							var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + number1 + "</td><td>" + number2 + "</td><td>" + expected + "</td><td>" + response + "</td><td>" + passed + "</td></tr>";
+							$("table tbody").append(markup);
+						}
+					}, 'JSON');
+
+				}
+
+				//multiplication option
+				if (action == 'mul') {
+					$.post('/mul/', inputData, function (expected) {
+						var response = (Math.ceil(parseInt(number1)) * Math.ceil(parseInt(number2)));
+						if (response != expected) {
+							passed = 'no'
+							var markupHight = "<tr><td><input type='checkbox' name='record'></td><td>" + number1 + "</td><td>" + number2 + "</td><td>" + expected + "</td><td>" + response + "</td><td>" + passed + "</td></tr>";
+							$("table tbody").append(markupHight);
+						}
+						else {
+							passed = 'yes'
+							var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + number1 + "</td><td>" + number2 + "</td><td>" + expected + "</td><td>" + response + "</td><td>" + passed + "</td></tr>";
+							$("table tbody").append(markup);
+						}
+
+
+
+					}, 'JSON');
+
+				}
+
+				//division controller
+				if (action == 'div') {
+					$.post('/div/', inputData, function (expected) {
+						var response = (Math.ceil(parseInt(number1)) / Math.ceil(parseInt(number2)));
+						if (response != expected) {
+							passed = 'no'
+							var markupHight = "<tr style='background-color: #4CAF50;'><td><input type='checkbox' name='record'></td><td>" + number1 + "</td><td>" + number2 + "</td><td>" + expected + "</td><td>" + response + "</td><td>" + passed + "</td></tr>";
+							$("table tbody").append(markupHight);
+						}
+						else {
+							passed = 'yes'
+							var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + number1 + "</td><td>" + number2 + "</td><td>" + expected + "</td><td>" + response + "</td><td>" + passed + "</td></tr>";
+							$("table tbody").append(markup);
+						}
+
+					}, 'JSON');
+
+				}
+
+			});
+
+			// Find and remove selected table rows
+			$(".delete-row").click(function () {
+				$("table tbody").find('input[name="record"]').each(function () {
+					if ($(this).is(":checked")) {
+						$(this).parents("tr").remove();
+					}
+				});
+			});
+		});    
+	</script>
+</head>
+
+<body>
+	<form>
+		<input type="text" id="number1" placeholder="number1">
+		<input type="text" id="number2" placeholder="number2">
+
+		<select class="form-control form-control-lg" id="action">
+			<option value="add">Addition</option>
+			<option value="sub">Subtraction</option>
+			<option value="div">Division</option>
+			<option value="mul">Multiplication</option>
+		</select>
+
+		<input type="button" class="add-row" value="Add Row">
+
+	</form>
+	<table>
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>number1</th>
+				<th>number2</th>
+				<th>response</th>
+				<th>expected</th>
+				<th>passed</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+	<button type="button" class="delete-row">Delete Row</button>
+</body>
+
+</html>
