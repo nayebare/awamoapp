@@ -1,4 +1,3 @@
-
 "use strict"
 var Model = require('../models/addModel.js');
 class addController {
@@ -9,8 +8,9 @@ class addController {
        * @returns {Object} Success or failure message
        */
     static getSum(req, res) {
-        if (req.body.opd1 == "" || req.body.opd2 == "") {
-            res.status(404).json("sent empty paramenters");
+        console.log(req.body)
+        if (req.body.opd1 == " " || req.body.opd2 == " ") {
+            res.status(400).json("Empty paramenters");
         }
         else {
             var sum = (parseInt(req.body.opd1) + parseInt(req.body.opd2));

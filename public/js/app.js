@@ -18,7 +18,7 @@ $(document).ready(function () {
 
     // addition option
     if (action == 'add') {
-      $.post('/add', inputData, function (expected) {
+      $.post('/api/add', inputData, function (expected) {
         var response = (Math.ceil(parseInt(number1)) + Math.ceil(parseInt(number2)));
         if (response != expected) {
           passed = 'no';
@@ -36,7 +36,7 @@ $(document).ready(function () {
     // substraction option
 
     if (action == 'sub') {
-      $.post('/sub/', inputData, function (expected) {
+      $.post('/api/sub/', inputData, function (expected) {
         var response = (Math.ceil(parseInt(number1)) - Math.ceil(parseInt(number2)));
         if (response != expected) {
           passed = 'no';
@@ -53,7 +53,7 @@ $(document).ready(function () {
 
     // multiplication option
     if (action == 'mul') {
-      $.post('/mul/', inputData, function (expected) {
+      $.post('/api/mul/', inputData, function (expected) {
         var response = (Math.ceil(parseInt(number1)) * Math.ceil(parseInt(number2)));
         if (response != expected) {
           passed = 'no';
@@ -71,7 +71,7 @@ $(document).ready(function () {
 
     // division controller
     if (action == 'div') {
-      $.post('/div/', inputData, function (expected) {
+      $.post('/api/div/', inputData, function (expected) {
         var response = (Math.ceil(parseInt(number1)) / Math.ceil(parseInt(number2)));
         if (response != expected) {
           passed = 'no';
@@ -91,6 +91,7 @@ $(document).ready(function () {
 
   // Find and remove selected table rows
   $('.delete-row').click(function () {
+    
     $('table tbody').find('input[name="record"]').each(function () {
       if ($(this).is(':checked')) {
         $(this).parents('tr').remove();

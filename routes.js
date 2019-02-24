@@ -30,16 +30,16 @@ router.get('/', function (req, res) { res.render('index'); });
 //app index
 router.get('/app', function (req, res) { res.render('app'); });
 
-router.route('/add/')
+router.route('/api/add/')
     .post(addController.getSum);
 
-router.route('/sub/')
+router.route('/api/sub/')
     .post(subController.getSub);
 
-router.route('/mul/')
+router.route('/api/mul/')
     .post(mulController.getMul);
 
-router.route('/div/')
+router.route('/api/div/')
     .post(mulController.getMul);
 
 module.exports = router;
