@@ -16,3 +16,9 @@ script: npm test
 after_success:
   - npm run coverage
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+deploy:
+  provider: heroku
+  api_key:  607bdb1f-8b1c-4170-bd1f-e3b02ec11e7c
+  app:
+    master: awamoapp
+    
