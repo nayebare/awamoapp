@@ -11,8 +11,7 @@
     "start": "node app.js",
     "test": "mocha --require babel-core/register --watch-extensions js \"{,!(node_modules)/**/}*.test.js\"",
     "start:dev": "nodemon server/src/index.js --exec babel-node",
-    "build": "babel ./server/src -d ./server/dist",
-    "pretest": "eslint --ignore-path .gitignore ."
+    "build": "babel ./server/src -d ./server/dist"
   },
   "directories": {
     "test": "test"
@@ -37,11 +36,15 @@
     "neo4j-driver": "*",
     "nodemailer": "^4.6.8",
     "pg": "^6.1.0",
+    "prettier": "^1.16.4",
     "swagger-ui-express": "^4.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
+    "eslint": "^5.14.1",
+    "eslint-config-strongloop": "^2.1.0",
+    "eslint-plugin-react": "^7.12.4",
     "gulp-babel": "^8.0.0",
     "mocha": "^6.0.1",
     "should": "^13.2.3",

@@ -8,7 +8,7 @@ var routes = require('./routes.js');
 const port = parseInt(process.env.PORT, 10) || 8000;
 const http = require('http');
 const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('../../swagger.json');
+//const swaggerDocument = require('../../swagger.json');
 
 app.use(express.json());
 var path = require('path');
@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 var router = express.Router();
 
 //using swagger api
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+//app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 //run app

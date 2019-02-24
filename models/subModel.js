@@ -1,1 +1,1 @@
-//will handles operations of the multiplication model
+// will handles operations of the multiplication model
