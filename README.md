@@ -1,8 +1,6 @@
 AWAMO APPLICATION API Vr.1.0.0
-This app has an api that works with its api to return the result after particular operations(addition,subtraction,multiplication and division of two numbers)
 
-!https://travis-ci.org/nayebare/awamoapp.svg?branch=master!:https://travis-ci.org/nayebare/awamoapp
-
+This is an api for awamo practical front-end developer position. The api accepts two numbers and performs basic mathematical calculations of addition,subtraction,division and multiplication. The api gives the result as the expected answer. The api expects a json payloadand a post request.
 
 
 
