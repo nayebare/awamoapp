@@ -37,7 +37,7 @@
     "nodemailer": "^4.6.8",
     "pg": "^6.1.0",
     "prettier": "^1.16.4",
-    "swagger-ui-express": "^4.0.1"
+    "swagger-ui-express": "^4.0.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

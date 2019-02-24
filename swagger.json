@@ -1,0 +1,207 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "This is an api for awamo practical front-end developer position.  The api accepts two numbers and performs basic mathematical calculations of  addition,subtraction,division and multiplication. The api gives the result as the expected answer.The api expects a json payloadand a post request",
+    "version" : "1.0.0",
+    "title" : "Awamo API",
+    "termsOfService" : "http://swagger.io/terms/",
+    "contact" : {
+      "email" : "micheal.nayebare@gmail.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0"
+    }
+  },
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/nayebare/awamo-api/1.0.0",
+  "schemes" : [ "https", "http" ],
+  "paths" : {
+    "/add/" : {
+      "post" : {
+        "tags" : [ "Addition" ],
+        "summary" : "Add param1 and param2 and return sum as success result",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "add",
+          "description" : "This is the first parameter.",
+          "required" : false,
+          "schema" : {
+            "type" : "object"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/addition"
+            }
+          },
+          "400" : {
+            "description" : "Invalid params supplied"
+          },
+          "404" : {
+            "description" : "Url is not found"
+          }
+        }
+      }
+    },
+    "/sub/" : {
+      "post" : {
+        "tags" : [ "Subtraction" ],
+        "summary" : "Subtract param1 and param2 and return sum as result",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "sub",
+          "description" : "This is the first parameter.",
+          "required" : false,
+          "schema" : {
+            "type" : "object"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/subtraction"
+            }
+          },
+          "400" : {
+            "description" : "Invalid params supplied"
+          },
+          "404" : {
+            "description" : "Url is not found"
+          }
+        }
+      }
+    },
+    "/mul/" : {
+      "post" : {
+        "tags" : [ "Multiplication" ],
+        "summary" : "Multiply param1 and param2 and return the multiple as success result",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "sub",
+          "description" : "This is the first parameter.",
+          "required" : false,
+          "schema" : {
+            "type" : "object"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/multiplication"
+            }
+          },
+          "400" : {
+            "description" : "Invalid params supplied"
+          },
+          "404" : {
+            "description" : "Url is not found"
+          }
+        }
+      }
+    },
+    "/div/" : {
+      "post" : {
+        "tags" : [ "Division" ],
+        "summary" : "Divide param1 and param2 and return answer as success result",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "div",
+          "description" : "This is the first parameter.",
+          "required" : false,
+          "schema" : {
+            "type" : "object"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/division"
+            }
+          },
+          "400" : {
+            "description" : "Invalid params supplied"
+          },
+          "404" : {
+            "description" : "Url is not found"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "addition" : {
+      "properties" : {
+        "opd1" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "opd2" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "add" : {
+          "type" : "string"
+        }
+      }
+    },
+    "subtraction" : {
+      "properties" : {
+        "opd1" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "opd2" : {
+          "type" : "integer",
+          "format" : "int64"
+        }
+      }
+    },
+    "multiplication" : {
+      "properties" : {
+        "opd1" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "opd2" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "mul" : {
+          "type" : "string"
+        }
+      }
+    },
+    "division" : {
+      "properties" : {
+        "opd1" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "opd2" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "div" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "externalDocs" : {
+    "description" : "Find out more about Swagger",
+    "url" : "http://swagger.io"
+  }
+}
