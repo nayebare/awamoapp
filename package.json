@@ -11,9 +11,7 @@
     "start": "node app.js",
     "test": "mocha --require babel-core/register --watch-extensions js \"{,!(node_modules)/**/}*.test.js\"",
     "start:dev": "nodemon server/src/index.js --exec babel-node",
-    "build": "babel ./server/src -d ./server/dist",
-    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls && nyc report --reporter=lcov",
-    "heroku-postbuild": "npm run build"
+    "build": "babel ./server/src -d ./server/dist"
   },
   "directories": {
     "test": "test"
