@@ -10,7 +10,7 @@ class divController {
        */
     static getDiv(req, res) {
         if (req.body.opd1 == "" || req.body.opd2 == "") {
-            res.status(404).json("sent empty paramenters");
+            res.status(400).json("Empty paramenters");
         }
         else {
             var result = (parseInt(req.body.opd1) / parseInt(req.body.opd2));

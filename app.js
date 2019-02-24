@@ -28,7 +28,7 @@ var router = express.Router();
 
 //using swagger api
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.use('/api/v1', router);
+app.use('/api/', router);
 
 
 //run app
