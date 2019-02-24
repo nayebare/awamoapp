@@ -1,7 +1,7 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "description" : "This is an api for awamo practical front-end developer position.  The api accepts two numbers and performs basic mathematical calculations of  addition,subtraction,division and multiplication. The api gives the result as the expected answer.The api expects a json payloadand a post request",
+    "description" : "This is an api for awamo practical front-end developer position.  The api accepts two numbers and performs basic mathematical calculations of  addition,subtraction,division and multiplication. The api gives the result as the expected answer.The api expects a json payload and a post request",
     "version" : "1.0.0",
     "title" : "Awamo API",
     "termsOfService" : "http://swagger.io/terms/",
@@ -12,9 +12,9 @@
       "name" : "Apache 2.0"
     }
   },
-  "host" : "virtserver.swaggerhub.com",
-  "basePath" : "/nayebare/awamo-api/1.0.0",
-  "schemes" : [ "https", "http" ],
+  "host" : "localhost:8000",
+  "basePath" : "/api/",
+  "schemes" : [ "http" ],
   "paths" : {
     "/add/" : {
       "post" : {
@@ -22,27 +22,23 @@
         "summary" : "Add param1 and param2 and return sum as success result",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "body",
-          "name" : "add",
-          "description" : "This is the first parameter.",
-          "required" : false,
-          "schema" : {
-            "type" : "object"
-          }
-        } ],
+        "parameters":
+          [
+            {
+              "name": "Add",
+              "in": "body",
+              "description": "The details of three paramenters needed",
+              "schema" : {
+                "$ref" : "#/definitions/addition"
+              }
+            }
+          ],
         "responses" : {
           "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/addition"
-            }
+            "description" : "Ok"
           },
           "400" : {
-            "description" : "Invalid params supplied"
-          },
-          "404" : {
-            "description" : "Url is not found"
+            "description" : "Empty params"
           }
         }
       }
@@ -53,27 +49,23 @@
         "summary" : "Subtract param1 and param2 and return sum as result",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "body",
-          "name" : "sub",
-          "description" : "This is the first parameter.",
-          "required" : false,
-          "schema" : {
-            "type" : "object"
-          }
-        } ],
+         "parameters":
+          [
+            {
+              "name": "Sub",
+              "in": "body",
+              "description": "The details of three paramenters needed",
+              "schema" : {
+                "$ref" : "#/definitions/subtraction"
+              }
+            }
+          ],
         "responses" : {
           "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/subtraction"
-            }
+            "description" : "Ok"
           },
           "400" : {
-            "description" : "Invalid params supplied"
-          },
-          "404" : {
-            "description" : "Url is not found"
+            "description" : "Empty params"
           }
         }
       }
@@ -81,30 +73,26 @@
     "/mul/" : {
       "post" : {
         "tags" : [ "Multiplication" ],
-        "summary" : "Multiply param1 and param2 and return the multiple as success result",
+        "summary" : "Multiply param1 and param2 and return the multiple as  result",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "body",
-          "name" : "sub",
-          "description" : "This is the first parameter.",
-          "required" : false,
-          "schema" : {
-            "type" : "object"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
+        "parameters":
+        [
+          {
+            "name": "Sub",
+            "in": "body",
+            "description": "The details of three paramenters needed",
             "schema" : {
               "$ref" : "#/definitions/multiplication"
             }
+          }
+        ],
+        "responses" : {
+          "200" : {
+            "description" : "Ok"
           },
           "400" : {
-            "description" : "Invalid params supplied"
-          },
-          "404" : {
-            "description" : "Url is not found"
+            "description" : "Empty params"
           }
         }
       }
@@ -115,27 +103,27 @@
         "summary" : "Divide param1 and param2 and return answer as success result",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "body",
-          "name" : "div",
-          "description" : "This is the first parameter.",
-          "required" : false,
-          "schema" : {
-            "type" : "object"
-          }
-        } ],
+        "parameters":
+          [
+            {
+              "name": "Div",
+              "in": "body",
+              "description": "The details of three paramenters needed",
+              "schema" : {
+                "$ref" : "#/definitions/division"
+              }
+            }
+          ],
+
         "responses" : {
           "200" : {
-            "description" : "successful operation",
+            "description" : "Ok",
             "schema" : {
               "$ref" : "#/definitions/division"
             }
           },
           "400" : {
-            "description" : "Invalid params supplied"
-          },
-          "404" : {
-            "description" : "Url is not found"
+            "description" : "Empty params"
           }
         }
       }
@@ -143,6 +131,9 @@
   },
   "definitions" : {
     "addition" : {
+      "required": [
+        "opd1", "opd1","opn"
+      ],
       "properties" : {
         "opd1" : {
           "type" : "integer",
@@ -152,12 +143,15 @@
           "type" : "integer",
           "format" : "int64"
         },
-        "add" : {
+        "opn" : {
           "type" : "string"
         }
       }
     },
     "subtraction" : {
+      "required": [
+        "opd1", "opd2","opn"
+      ],
       "properties" : {
         "opd1" : {
           "type" : "integer",
@@ -166,10 +160,16 @@
         "opd2" : {
           "type" : "integer",
           "format" : "int64"
+        },
+        "opn" : {
+          "type" : "string"
         }
       }
     },
     "multiplication" : {
+      "required": [
+        "opd1", "opd2","opn"
+      ],
       "properties" : {
         "opd1" : {
           "type" : "integer",
@@ -179,12 +179,15 @@
           "type" : "integer",
           "format" : "int64"
         },
-        "mul" : {
+        "opn" : {
           "type" : "string"
         }
       }
     },
     "division" : {
+      "required": [
+        "opd1", "opd2","opn"
+      ],
       "properties" : {
         "opd1" : {
           "type" : "integer",
@@ -194,7 +197,7 @@
           "type" : "integer",
           "format" : "int64"
         },
-        "div" : {
+        "opn" : {
           "type" : "string"
         }
       }
