@@ -22,3 +22,7 @@ https://awamoapp.herokuapp.com/
 API Documentation
 https://awamoapp.herokuapp.com/api-docs/
 
+
+Code Quality checks
+<a href="https://codeclimate.com/github/nayebare/awamoapp/test_coverage"><img src="https://api.codeclimate.com/v1/badges/a3c64928f51911eeac87/test_coverage" />
+</a>
