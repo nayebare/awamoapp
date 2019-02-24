@@ -1,13 +1,12 @@
-/***
 //Require the dev-dependencies
 let chai = require('chai');
 let chaiHttp = require('chai-http');
-let should = chai.should();
+var app = require('../app');
 
-
+chai.should();
 chai.use(chaiHttp);
-describe('/POST Addition', () => {
 
+describe('/POST Addition', () => {
   it('it should post Addition', (done) => {
     chai.request('http://localhost:8000')
       .post('/add/')
@@ -15,16 +14,20 @@ describe('/POST Addition', () => {
         opd1: 4, opd2: 3
       })
       .end((err, res) => {
-        expect(res).to.not.equal(200)
+        res.body.length.should.be.eql(0);
         done();
       });
   });
 });
-*/
+
+
+
+/*
 var supertest = require("supertest");
 var should = require("should");
+var server = require('../app');
 
-var server = supertest.agent("http://localhost:8000");
+var server = supertest.agent(server);
 describe("SAMPLE unit test", function () {
   // #1 should return home page
   it("should return home page", function (done) {
@@ -38,4 +41,5 @@ describe("SAMPLE unit test", function () {
   });
 
 });
+*/
 
