@@ -8,8 +8,9 @@ class addController {
        * @returns {Object} Success or failure message
        */
     static getSum(req, res) {
-        console.log(req.body)
-        if (req.body.opd1 == " " || req.body.opd2 == " ") {
+        //check if payload has three paramenters
+     //   var count = Object.keys(myParsedBodyObject).length;
+        if (req.body.opd1 == " " || req.body.opd2 == " " || req.body.opn == "") {
             res.status(400).json("Empty paramenters");
         }
         else {
