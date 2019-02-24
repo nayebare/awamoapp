@@ -39,6 +39,9 @@
           },
           "400" : {
             "description" : "Empty params"
+          },
+          "404" : {
+            "description" : "expects three paramenters"
           }
         }
       }

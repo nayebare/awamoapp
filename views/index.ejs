@@ -1,58 +1,111 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+	<title>Awamo Dev App</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link href="../css/style.css" rel="stylesheet" />
 </head>
 
-<div class="container">
+<body>
 
-    <h2>AWAMO APPLICATION API Vr.1.0.0 API Vr2.0. Guide</h2>
+	<div class="container-fluid">
+		<div class="row content">
+			<div class="col-sm-3 sidenav">
+				<h4>Awamo Dev Exam App</h4>
+				<ul class="nav nav-pills nav-stacked">
+					<li class="active">
+						<a href="#section1">Home</a>
+					</li>
+					<li>
+						<a href="/api-docs/">API documentation</a>
+					</li>
+				</ul>
+				<br>
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Search">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button">
+							<span class="glyphicon glyphicon-search"></span>
+						</button>
+					</span>
+				</div>
+			</div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">METHOD</th>
-                <th scope="col">URL</th>
-                <th scope="col">ACTION</th>
-            </tr>
-        </thead>
-        <tbody>
+			<div class="col-sm-9">
+				<h4><small><b>AWAMO APP</b></small></h4>
+					<hr>
+						<p>This is an api for awamo practical front-end developer position. The api accepts two numbers and performs basic mathematical calculations of addition,subtraction,division and multiplication. The api gives the result as the expected answer.
+							The api expects a json payloadand a post request</p>
+				<hr>
+				<form role="form">
+					<div class="form-group">
+						<label for="number1">Number1:</label>
+						<input type="text" id="number1" class="form-control">
+					</div>
 
-            <tr>
-                <th scope="row">POST</th>
-                <td>/add/</td>
-                <td>Add two paramenters and return their sum</td>
-            </tr>
+					<div class="form-group">
+						<label for="number1">Number2:</label>
+						<input type="text" id="number2" class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="sel1">elect operation:</label>
+						<select class="form-control" id="action">
+							<option value="no">Select Operation</option>
+							<option value="add">Addition</option>
+							<option value="sub">Subtraction</option>
+							<option value="div">Division</option>
+							<option value="mul">Multiplication</option>
+						</select>
+					</div>
 
-            <tr>
-                <th scope="row">POST</th>
-                <td>/sub/ </td>
-                <td>Subtract two paramenters and return their result</td>
-            </tr>
+					<input type="button" class="add-row btn btn-primary" value="perform operation">
 
-            <tr>
-                <th scope="row">POST</th>
-                <td>/mul/ </td>
-                <td>Multiplies two paramenters and return their multiple</td>
-            </tr>
+				</form>
+				<hr>
 
-            <tr>
-                <th scope="row">POST</th>
-                <td>/div/ </td>
-                <td>Divides two paramenters and return their result</td>
-            </tr>
-        </tbody>
-    </table>
 
-</div>
-</div>
+				<h4>
+					<small>
+						<b>RESULTS TABLE</b>
+					</small>
+				</h4>
+				<hr>
 
+				<table class="table table-hover">
+					<thead>
+						<tr style="background:rgb(247, 249, 250)">
+							<th>#</th>
+							<th>number1</th>
+							<th>number2</th>
+							<th>response</th>
+							<th>expected</th>
+							<th>passed</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+				<button type="button" class="delete-row btn btn-danger">Delete Row</button>
+
+
+				<br>
+				<br>
+
+
+
+			</div>
+		</div>
+	</div>
+
+	<footer class="container-fluid">
+		<p>Footer Text</p>
+	</footer>
+	<script src="../js/app.js"></script>
+</body>
 
 </html>

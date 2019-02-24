@@ -8,12 +8,12 @@ var expect = chai.expect;
 chai.should();
 chai.use(chaiHttp);
 
-describe('/POST Addition', () => {
+describe('/POST Subtraction', () => {
   it('it should  test for three paramenters', (done) => {
    chai.request('http://localhost:8000')
-      .post('/api/add/')
+      .post('/api/sub/')
       .send({
-        opd1:4, opd2:3, opn:'add'
+        opd1:4, opd2:3, opn:'sub'
       })
       .end((err, res) => {
        expect(res).to.have.status(200);
