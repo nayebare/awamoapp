@@ -3,7 +3,7 @@ node_js:
  - "stable"
 env:
   global:
-    - CC_TEST_REPORTER_ID=410a965e5ce79b5ffe3fd354fc74b4ed9e6fee15b84fc44a5052606a7c4f426a
+    - CC_TEST_REPORTER_ID=9e4212a6abf0850314b035a5d4d8a57331958bccd9ff80d62624f16a2bf96bea
 
 install: 
   - npm install

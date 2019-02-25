@@ -8,7 +8,7 @@ var expect = chai.expect;
 chai.should();
 chai.use(chaiHttp);
 
-describe('/POST Addition', () => {
+describe('/POST Division', () => {
   it('it should  test for three paramenters', (done) => {
    chai.request('http://localhost:8000')
       .post('/api/div/')
