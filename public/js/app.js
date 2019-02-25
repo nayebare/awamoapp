@@ -3,110 +3,81 @@
 $(document).ready(function () {
 
   $('.add-row').click(function () {
-
-    //use monster-backend code to remove duplication and cleam up code
-    
     var inputData = {};
     var number1 = $('#number1').val();
         action = $('#action').val();
         number2 = $('#number2').val();
-        expected = 0;
 
     // put values in array
     inputData.opd1 = number1;
     inputData.opd2 = number2;
     inputData.opn = action;
 
-if(number1 == '' || number2 == '' ){alert('number1 or number2 is empty');} else{
-
- if(action == 'no'){alert('please select operation');} else{
- 
-    // addition option
-    if (action == 'add') {
-      $.post('/api/add', inputData, function (expected) {
-        var response = (Math.ceil(parseInt(number1)) + Math.ceil(parseInt(number2)));
-        if (response != expected) {
-          passed = 'no';
-          var markupHighlight = "<tr><td><input type='checkbox' name='record'></td><td>" + number1 + '</td><td>' + number2 + '</td><td>' + expected + '</td><td>' + response + '</td><td>' + passed + '</td></tr>';
-          $('table tbody').append(markupHighlight);
-        } else {
-          passed = 'yes';
-          var markup = "<tr backgroud-color='lime-gren'><td><input type='checkbox' name='record'></td><td>" + number1 + '</td><td>' + number2 + '</td><td>' + expected + '</td><td>' + response + '</td><td>' + passed + '</td></tr>';
-          $('table tbody').append(markup);
+    //apply mock-backend server result here
+    var response = mockServerComputation(inputData);
+    if (number1 == '' || number2 == '') { alert('number1 or number2 is empty'); } else {
+        // addition option
+        if (action == 'add') {
+          var expectedSum = (parseInt(number1)) + parseInt(number2);
+          if (response != expectedSum) {
+            passed = 'no';
+            var markupHighlight = "<tr style='background-color:#ffaf9a;'><td>" + number1 + '</td><td>' + number2 + '</td><td>' + expectedSum + '</td><td>' + response + '</td><td>' + passed + '</td><td><span class="deletebtn" title="Remove row">x</></td></tr>';
+            $('table tbody').append(markupHighlight);
+          } else {
+            passed = 'yes';
+            var markup = "<tr style='background-color:#ffe484;'><td>" + number1 + '</td><td>' + number2 + '</td><td>' + expectedSum + '</td><td>' + response + '</td><td>' + passed + '</td><td><span class="deletebtn" title="Remove row">x</span></td></tr>';
+            $('table tbody').append(markup);
+          }
         }
 
-      }, 'JSON');
-
-    }
-
-    // substraction option
-    if (action == 'sub') {
-      $.post('/api/sub/', inputData, function (expected) {
-        var response = (Math.ceil(parseInt(number1)) - Math.ceil(parseInt(number2)));
-        if (response != expected) {
-          passed = 'no';
-          var markupHight = "<tr><td><input type='checkbox' name='record'></td><td>" + number1 + '</td><td>' + number2 + '</td><td>' + expected + '</td><td>' + response + '</td><td>' + passed + '</td></tr>';
-          $('table tbody').append(markupHight);
-        } else {
-          passed = 'yes';
-          var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + number1 + '</td><td>' + number2 + '</td><td>' + expected + '</td><td>' + response + '</td><td>' + passed + '</td></tr>';
-          $('table tbody').append(markup);
-        }
-      }, 'JSON');
-
-    }
-
-    // multiplication option
-    if (action == 'mul') {
-      $.post('/api/mul/', inputData, function (expected) {
-        var response = (Math.ceil(parseInt(number1)) * Math.ceil(parseInt(number2)));
-        if (response != expected) {
-          passed = 'no';
-          var markupHight = "<tr><td><input type='checkbox' name='record'></td><td>" + number1 + '</td><td>' + number2 + '</td><td>' + expected + '</td><td>' + response + '</td><td>' + passed + '</td></tr>';
-          $('table tbody').append(markupHight);
-        } else {
-          passed = 'yes';
-          var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + number1 + '</td><td>' + number2 + '</td><td>' + expected + '</td><td>' + response + '</td><td>' + passed + '</td></tr>';
-          $('table tbody').append(markup);
+        // substraction option
+        if (action == 'sub') {
+          var expectedDif = (parseInt(number1)) - parseInt(number2);
+          if (response != expectedDif) {
+            passed = 'no';
+            var markupHight = "<tr style='background-color:#ffaf9a;'><td>" + number1 + '</td><td>' + number2 + '</td><td>' + expectedDif + '</td><td>' + response + '</td><td>' + passed + '</td><td><span  class="deletebtn" title="Remove row">x</span></td></tr>';
+            $('table tbody').append(markupHight);
+          } else {
+            passed = 'yes';
+            var markup = "<tr style='background-color:#ffe484;'><td>" + number1 + '</td><td>' + number2 + '</td><td>' + expectedDif + '</td><td>' + response + '</td><td>' + passed + '</td><td><span class="deletebtn" title="Remove row">x</span></td></tr>';
+            $('table tbody').append(markup);
+          }
         }
 
-      }, 'JSON');
-
-    }
-
-    // division controller
-    if (action == 'div') {
-      $.post('/api/div/', inputData, function (expected) {
-        var response = (Math.ceil(parseInt(number1)) / Math.ceil(parseInt(number2)));
-        if (response != expected) {
-          passed = 'no';
-          var markupHight = "<tr style='background-color: #4CAF50;'><td><input type='checkbox' name='record'></td><td>" + number1 + '</td><td>' + number2 + '</td><td>' + expected + '</td><td>' + response + '</td><td>' + passed + '</td></tr>';
-          $('table tbody').append(markupHight);
-        } else {
-          passed = 'yes';
-          var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + number1 + '</td><td>' + number2 + '</td><td>' + expected + '</td><td>' + response + '</td><td>' + passed + '</td></tr>';
-          $('table tbody').append(markup);
+        // multiplication option
+        if (action == 'mul') {
+          var expectedResult = (parseInt(number1)) * parseInt(number2);
+          if (response != expectedResult) {
+            passed = 'no';
+            var markupHight = "<tr style='background-color:#ffaf9a;'><td>" + number1 + '</td><td>' + number2 + '</td><td>' + expectedResult + '</td><td>' + response + '</td><td>' + passed + '</td><td><span class="deletebtn" title="Remove row">x</span></td></tr>';
+            $('table tbody').append(markupHight);
+          } else {
+            passed = 'yes';
+            var markup = "<tr style='background-color:#ffe484;'><td>" + number1 + '</td><td>' + number2 + '</td><td>' + expectedResult + '</td><td>' + response + '</td><td>' + passed + '</td><td><span  class="deletebtn" title="Remove row">x</span></td></tr>';
+            $('table tbody').append(markup);
+          }
         }
 
-      }, 'JSON');
-
-    }
-  }
-}
-
+        // division controller
+        if (action == 'div') {
+          var expectedRes = (parseInt(number1)) / parseInt(number2);
+          if (response != expectedRes) {
+            passed = 'no';
+            var markupHight = "<tr style='background-color:#ffaf9a;'><td>" + number1 + '</td><td>' + number2 + '</td><td>' + expectedRes + '</td><td>' + response + '</td><td>' + passed + '</td><td><span  class="deletebtn" title="Remove row">x</span></td></tr>';
+            $('table tbody').append(markupHight);
+          } else {
+            passed = 'yes';
+            var markup = "<tr style='background-color:#ffe484;'><td>" + number1 + '</td><td>' + number2 + '</td><td>' + expectedRes + '</td><td>' + response + '</td><td>' + passed + '</td><td><span  class="deletebtn" title="Remove row">x</span></td></tr>';
+            $('table tbody').append(markup);
+          }
+        }
+      }
+    
   });// end main function
-  
-  // Find and remove selected table rows
-  $('.delete-row').click(function () {
-    $('table tbody').find('input[name="record"]').each(function () {
-      if ($(this).is(':checked')) {
-        var result = confirm("Are you sure  you want to delete this item?");
-        $(this).parents('tr').remove();
-      }
-      else {
-        alert('please select item');
-      }
-    });
 
-  });
+  // Find and remove selected table rows
+$(document).on('click', 'span.deletebtn', function () {
+  $(this).closest('tr').remove();
+  return false;
+});
 });

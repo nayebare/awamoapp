@@ -27,7 +27,7 @@ table td {
 }
 
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-    .row.content {height: 1500px}
+    .row.content {height: 1500px;}
     
     /* Set gray background color and 100% height */
     .sidenav {
@@ -49,4 +49,65 @@ table td {
         padding: 15px;
       }
       .row.content {height: auto;} 
+    }
+    .deletebtn{
+        color:firebrick;
+        padding: 14px;
+    }
+    .borderless td, .borderless th {
+        border: none;
+    }
+    th {
+        background-color: #2c3145;
+        color: #b28c39;
+      }
+
+    h4{
+        color:#2c3145;
+        font-size: 26px;
+
+    }
+
+    .col-sm-9{
+        background-color:#fff8e5;
+    }
+    .row{
+        background-color:#fff8e5;
+    }
+
+    .col-sm-3{
+        background-color:#28353e;
+        color:#fff;
+    }
+
+    #number2 {
+        border-radius: 18px;
+        background: #28353e;
+        padding: 20px; 
+        width: 200px;
+        height: 15px;   
+        border: 2px solid #eba91c; 
+        color:#ad831f
+    }
+
+    #number1 {
+        border-radius: 18px;
+        background: #28353e;
+        padding: 20px; 
+        width: 200px;
+        height: 15px; 
+        border: 2px solid #eba91c; 
+        color:#ad831f;
+    }
+
+    .add-row {
+        border-radius: 29px;
+        border: 2px solid #ad831f;
+        width: 200px;
+        background: #ad831f;
+  
+    }
+    #action{
+        background: #28353e;
+        color:#ad831f;
     }

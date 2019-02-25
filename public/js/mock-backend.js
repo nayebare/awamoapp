@@ -1,31 +1,33 @@
-//mock backend
+//receives a stringyfied json data object
 
-var ajax = $.ajax;
-$.ajax = function(config) {
-	alert('can reach backend')
-	var data = JSON.parse(config.data),
-		response;
-
+function mockServerComputation(data) {
+	var response;
 	switch (data.opn) {
 		case 'add':
-			response = data.opd1 + data.opd2;
+		response = parseInt(data.opd1) + parseInt(data.opd2);
 			break;
 		case 'sub':
-			response = data.opd1 - data.opd2;
+		response = parseInt(data.opd1) - parseInt(data.opd2);
 			break;
 		case 'mul':
-			response = data.opd1 * data.opd2;
+			response = parseInt(data.opd1) * parseInt(data.opd2);
 			break;
 		case 'div':
-			response = data.opd1 / data.opd2;
+		response = parseInt(data.opd1) / parseInt(data.opd2);
 			break;
+
 	}
-	if(Math.round(Math.random()) === 1) {
-		response = Math.ceil(Math.random() * 2000);
+
+	if (Math.round(Math.random()) === 1) {
+	response = Math.ceil(Math.random() * 2000);
 	}
-	config.success(response);
+
+	return response;
+
+/*
 	return {
-		fail: function() {}
+		fail: function () { }
 	};
+*/
 }
 
