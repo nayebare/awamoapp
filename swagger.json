@@ -12,9 +12,9 @@
       "name" : "Apache 2.0"
     }
   },
-  "host" : "localhost:8000",
+  "host" : "awamoapp.herokuapp.com",
   "basePath" : "/api/",
-  "schemes" : [ "http" ],
+  "schemes" : [ "https" ],
   "paths" : {
     "/add/" : {
       "post" : {
