@@ -27,8 +27,6 @@ const userVerification = require('./middleware/verifyToken.js');
 //for the index route of our api
 //will translate this to swagger
 router.get('/', function (req, res) { res.render('index'); });
-//app index
-router.get('/app', function (req, res) { res.render('app'); });
 
 router.route('/api/add/')
     .post(addController.getSum);
