@@ -53,6 +53,8 @@ table td {
     .deletebtn{
         color:firebrick;
         padding: 14px;
+        cursor: pointer;
+        font-size: 20px;
     }
     .borderless td, .borderless th {
         border: none;
@@ -84,7 +86,7 @@ table td {
         border-radius: 18px;
         background: #28353e;
         padding: 20px; 
-        width: 200px;
+        width: 100%;
         height: 15px;   
         border: 2px solid #eba91c; 
         color:#ad831f
@@ -94,7 +96,7 @@ table td {
         border-radius: 18px;
         background: #28353e;
         padding: 20px; 
-        width: 200px;
+        width: 100%;
         height: 15px; 
         border: 2px solid #eba91c; 
         color:#ad831f;
@@ -103,11 +105,27 @@ table td {
     .add-row {
         border-radius: 29px;
         border: 2px solid #ad831f;
-        width: 200px;
+        width: 100%;
         background: #ad831f;
+        color:#28353e;
   
     }
     #action{
+        border-radius: 18px;
         background: #28353e;
+        border: 2px solid #ad831f;
         color:#ad831f;
     }
+
+    #action select {
+        background: #ad831f;
+        width: 168px;
+        padding: 5px;
+        font-size: 16px;
+        line-height: 1;
+        border: 0;
+        border-radius: 0;
+        height: 34px;
+        -webkit-appearance: none;
+        color: #000;
+      }
