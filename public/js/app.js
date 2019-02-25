@@ -3,6 +3,9 @@
 $(document).ready(function () {
 
   $('.add-row').click(function () {
+
+    //use monster-backend code to remove duplication and cleam up code
+    
     var inputData = {};
     var number1 = $('#number1').val();
         action = $('#action').val();
@@ -35,8 +38,8 @@ if(number1 == '' || number2 == '' ){alert('number1 or number2 is empty');} else{
       }, 'JSON');
 
     }
-    // substraction option
 
+    // substraction option
     if (action == 'sub') {
       $.post('/api/sub/', inputData, function (expected) {
         var response = (Math.ceil(parseInt(number1)) - Math.ceil(parseInt(number2)));
